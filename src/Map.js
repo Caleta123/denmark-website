@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
-import { LatLngExpression } from 'leaflet'
 
 const locations = [
     { name: 'Copenhagen', lat: 55.6761, lon: 12.5683, info: 'The capital city of Denmark!' },

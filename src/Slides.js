@@ -253,9 +253,9 @@ export const Slides = () => {
             </p>
 
             <div className='image-container' ref={imgsRef}>
-                <img className='second-image-1' src={image5}></img>
-                <img className='second-image-2' src={image6}></img>
-                <img className='second-image-3' src={image4}></img>
+                <img className='second-image-1' src={image5} alt='danishfood'></img>
+                <img className='second-image-2' src={image6} alt='hygge'></img>
+                <img className='second-image-3' src={image4} alt='beach'></img>
             </div>
             <button onClick={goLeft} className='btn-go-left'><i><FaArrowLeft /></i></button>
             <button onClick={goRight} className='btn-go-right'><i><FaArrowRight /></i></button>
