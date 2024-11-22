@@ -149,7 +149,7 @@ i {
     border-radius: 10px;
     width: 80%;
     display: inline-block;
-    position: absolute;
+    position: absolute !important;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
