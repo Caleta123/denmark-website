@@ -17,6 +17,7 @@ export const Slides = () => {
     const fourthSlideRef = useRef(null)
     const carouselRef = useRef(null)
     const [imageWidth, setImageWidth] = useState(0)
+    const [imageWidth2, setImageWidthTwo] = useState(0)
     const imgsRef = useRef(null)
 
     useEffect(() => {
@@ -40,6 +41,12 @@ export const Slides = () => {
             const firstImage = carouselRef.current.querySelector('img')
             if (firstImage) {
                 setImageWidth(firstImage.offsetWidth)
+            }
+        }
+        if(imgsRef.current) {
+            const firstImage = imgsRef.current.querySelector('img')
+            if (firstImage) {
+                setImageWidthTwo(firstImage.offsetWidth)
             }
         }
     }, [])
@@ -122,9 +129,9 @@ export const Slides = () => {
 
     const scrollSecond = () => {
         const firstSlide = secondSlideRef.current
-        const first = firstSlide.querySelectorAll('.btn-left, .btn-right, .second-header, .carousel-container, .btn-el-second')
+        const first = firstSlide.querySelectorAll('.btn-left, .btn-right, .second-header, .carousel-1, .btn-el-second')
         const secondSlide = thirdSlideRef.current
-        const second = secondSlide.querySelectorAll('.third-header, .image-container, .btn-go-left, .btn-go-right')
+        const second = secondSlide.querySelectorAll('.third-header, .btn-go-left, .btn-go-right, .carousel-2')
         const secondButton = secondSlide.querySelectorAll('.btn-el-third')
 
         if (firstSlide && secondSlide) {
@@ -168,18 +175,18 @@ export const Slides = () => {
             })
         }
     }
-    const goLeft = () => {
-        if(imgsRef.current) {
-            imgsRef.current.scrollBy({
-                left: -imageWidth,
+    const goRight = () => {
+        if (imgsRef.current) {
+            imgsRef.current.scrollBy ({
+                left: imageWidth2,
                 behavior: 'smooth'
             })
         }
     }
-    const goRight = () => {
-        if(imgsRef.current) {
-            imgsRef.current.scrollBy({
-                left: imageWidth,
+    const goLeft = () => {
+        if (imgsRef.current) {
+            imgsRef.current.scrollBy ({
+                left: -imageWidth2,
                 behavior: 'smooth'
             })
         }
@@ -187,7 +194,7 @@ export const Slides = () => {
 
     const scrollThird = () => {
         const firstSlide = thirdSlideRef.current
-        const first = firstSlide.querySelectorAll('.btn-go-left, .btn-go-right, .image-container, .third-header, .btn-el-third')
+        const first = firstSlide.querySelectorAll('.btn-go-left, .btn-go-right, .third-header, .btn-el-third, .carousel-2')
         const secondSlide = fourthSlideRef.current
         const second = secondSlide.querySelectorAll('.fourth-header, .map-container, .footer')
 
@@ -229,7 +236,7 @@ export const Slides = () => {
 
         <div className='second-slide' ref={secondSlideRef}>
             <p className='second-header'>Discovering Denmark</p>
-            <div className='carousel-container'>
+            <div className='carousel-container carousel-1'>
                 <div className='carousel' ref={carouselRef}>
                     <div>
                         <img src={image1} alt='img1'></img>
@@ -253,10 +260,18 @@ export const Slides = () => {
         <div className='third-slide' ref={thirdSlideRef}>
             <p className='third-header'>...and it's culture</p>
 
-            <div className='image-container' ref={imgsRef}>
-                <img className='second-image-1' src={image5} alt='danishfood'></img>
-                <img className='second-image-2' src={image6} alt='hygge'></img>
-                <img className='second-image-3' src={image4} alt='beach'></img>
+            <div className='carousel-container carousel-2'>
+                <div className='carousel' ref={imgsRef}>
+                    <div>
+                        <img src={image5} alt='danishfood'></img>
+                    </div>
+                    <div>
+                        <img src={image6} alt='hygge'></img>
+                    </div>
+                    <div>
+                        <img src={image4} alt='beach'></img>
+                    </div>
+                </div>
             </div>
             <button onClick={goLeft} className='btn-go-left'><i><FaArrowLeft /></i></button>
             <button onClick={goRight} className='btn-go-right'><i><FaArrowRight /></i></button>
