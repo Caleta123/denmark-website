@@ -58,22 +58,25 @@ export const Slides = () => {
                 ease: "power2.inOut",
                 stagger: 0.2,
             })
-            gsap.to(firstSlide, {
-                zIndex: -1,
-            })
         }
         if (secondSlide) {
+            gsap.fromTo(secondSlide, {
+                y: 0,
+            }, {
+                y: '-100vh',
+                duration: 2,
+                delay: 1
+            })
             gsap.fromTo(second, {
-                visibility: 'hidden',
-                y: '100vh',
-                zIndex: -1,
+                y: 100,
+                zIndex: -1
             }, {
                 y: 0,
-                visibility: 'visible',
                 zIndex: 2,
                 duration: 2,
                 stagger: 0.4,
                 ease: 'power2.inOut',
+                delay: 1
             })
             gsap.fromTo(buttons, {
                 y: '150vh',
@@ -131,24 +134,25 @@ export const Slides = () => {
                 ease: 'power2.inOut',
                 stagger: 0.2
             })
-            gsap.to(firstSlideRef, {
-                zIndex: -2
-            })
         }
         if (secondSlide) {
-            gsap.fromTo(second, {
-                visibility: 'hidden',
-                y: '100vh',
-            }, {
+            gsap.fromTo(secondSlide, {
                 y: 0,
-                visibility: 'visible',
+            }, {
+                y: '-100vh',
                 duration: 2,
-                stagger: 0.4,
-                ease: 'power2.inOut',
                 delay: 2
             })
-            gsap.to(secondSlide, {
+            gsap.fromTo(second, {
+                y: 100,
+                zIndex: -1,
+            }, {
+                y: 0,
+                duration: 2,
+                delay: 2,
                 zIndex: 2,
+                stagger: 0.4,
+                ease: 'power2.inOut'
             })
         }
         if (secondSlide) {
@@ -194,24 +198,24 @@ export const Slides = () => {
                 ease: 'power2.inOut',
                 stagger: 0.2
             })
-            gsap.to(firstSlideRef, {
-                zIndex: -6
-            })
         }
         if (secondSlide) {
-            gsap.fromTo(second, {
-                visibility: 'hidden',
-                y: '100vh',
-            }, {
+            gsap.fromTo(secondSlide, {
                 y: 0,
-                visibility: 'visible',
+            }, {
+                y: '-100vh',
                 duration: 2,
-                stagger: 0.4,
-                ease: 'power2.inOut',
                 delay: 2
             })
-            gsap.to(secondSlide, {
+            gsap.fromTo(second, {
+                y: 40,
+            }, {
+                y: 0,
+                duration: 2,
+                stagger: 0.7,
                 zIndex: 2,
+                ease: 'power2.inOut',
+                delay: 2
             })
         }
     }
@@ -247,10 +251,7 @@ export const Slides = () => {
         </div>
 
         <div className='third-slide' ref={thirdSlideRef}>
-            <p className='third-header'>
-                <span className='third-header-span1'>...and it's</span> <br></br>
-                <span className='third-header-span2'>culture</span>
-            </p>
+            <p className='third-header'>...and it's culture</p>
 
             <div className='image-container' ref={imgsRef}>
                 <img className='second-image-1' src={image5} alt='danishfood'></img>

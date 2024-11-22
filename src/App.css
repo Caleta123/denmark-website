@@ -20,7 +20,6 @@ body {
   position: relative;
   height: 100vh;
   margin: 0;
-  z-index: 1;
   > p {
     display: inline-block;
     position: absolute;
@@ -46,7 +45,7 @@ body {
   position: absolute;
 }
 .btn-el-second {
-  top: 85%;
+  top: 80%;
   left: 80%;
   transform: translate(-50%, -50%);
 }
@@ -57,7 +56,7 @@ body {
 }
 .second-slide {
   position: absolute;
-  top: 0;
+  top: 100vh;
   left: 0;
   text-align: center;
   height: 100vh;
@@ -140,16 +139,15 @@ i {
 }
 .third-slide {
   position: absolute;
-  top: 0;
+  top: 100vh;
   left: 0;
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  z-index: -2;
   > p {
     margin: 0;
     border-radius: 10px;
-    width: 80%;
+    width: 70%;
     display: inline-block;
     position: absolute;
     top: 30%;
@@ -208,19 +206,18 @@ i {
 }
 .fourth-slide {
   position: absolute;
-  top: 0;
+  top: 100vh;
   left: 0;
   height: 100vh;
   width: 100%;
   overflow-x: hidden;
-  z-index: -5;
   > p {
     margin: 0;
     border-radius: 10px;
-    width: 80%;
+    width: 90%;
     display: inline-block;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
@@ -233,14 +230,14 @@ i {
   width: 80%;
   height: 25%;
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 .footer {
   opacity: 0.8;
   position: absolute;
-  top: 90%;
+  top: 85%;
   left: 80%;
   color: whitesmoke;
   font-weight: 200;
