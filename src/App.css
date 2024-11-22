@@ -68,7 +68,7 @@ body {
     width: 80%;
     display: inline-block;
     position: absolute;
-    top: 30%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
@@ -81,7 +81,7 @@ body {
   justify-content: center;
   margin: auto;
   position: relative;
-  top: 60%;
+  top: 55%;
   left: 50%;
   overflow-x: auto;
   overflow-y: hidden;
@@ -112,9 +112,11 @@ body {
   cursor: pointer;
   background-color: gray;
 }
-.btn-right {
+.btn-right, .btn-left {
   position: absolute;
-  top: 80%;
+  top: 75%;
+}
+.btn-right {
   left: 60%;
   transform: translate(-50%, -50%);
   border: none;
@@ -122,8 +124,6 @@ body {
   padding: 5px 10px;
 }
 .btn-left {
-  position: absolute;
-  top: 80%;
   left: 40%;
   transform: translate(-50%, -50%);
   border: none;
@@ -160,7 +160,7 @@ i {
 }
 .image-container{
   display: flex;
-  position: absolute;
+  position: absolute !important;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -191,6 +191,7 @@ i {
   border-radius: 3px;
   opacity: 0.7;
   transform: translate(-50%, -50%);
+  z-index: 6;
 }
 .btn-go-left {
   left: 43%;
