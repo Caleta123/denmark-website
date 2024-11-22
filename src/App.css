@@ -147,7 +147,7 @@ i {
   > p {
     margin: 0;
     border-radius: 10px;
-    width: 70%;
+    width: 80%;
     display: inline-block;
     position: absolute;
     top: 30%;
@@ -156,7 +156,6 @@ i {
     color: whitesmoke;
     font-weight: 600;
     font-size: 2rem;
-    text-align: center;
   }
 }
 .image-container{
@@ -217,7 +216,7 @@ i {
     width: 90%;
     display: inline-block;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: whitesmoke;
@@ -230,7 +229,7 @@ i {
   width: 80%;
   height: 25%;
   position: absolute;
-  top: 65%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

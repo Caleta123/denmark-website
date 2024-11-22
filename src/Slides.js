@@ -223,8 +223,8 @@ export const Slides = () => {
   return (
     <div>
         <div className='first-slide' ref={firstSlideRef}>
-            <p className='first-p' data-speed="1">DENMARK</p>
-            <button className='btn-el-first' data-speed="0.7" onClick={scrollFirst}>Scroll</button>
+            <p className='first-p'>DENMARK</p>
+            <button className='btn-el-first' onClick={scrollFirst}>Scroll</button>
         </div>
 
         <div className='second-slide' ref={secondSlideRef}>
