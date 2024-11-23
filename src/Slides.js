@@ -1,14 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
-import image1 from './images/andreas-rasmussen-oBmlsTW2pHY-unsplash.jpg'
-import image2 from './images/febiyan--hwDGRQzAeM-unsplash.jpg'
-import image3 from './images/sandro-kradolfer-imLsDPLnr7Y-unsplash.jpg'
+import image1 from './images/andreas-rasmussen-oBmlsTW2pHY-unsplash.avif'
+import image2 from './images/febiyan--hwDGRQzAeM-unsplash.avif'
+import image3 from './images/kevin-angelso-DXjEc3tSt8M-unsplash.avif'
 import { FaArrowLeft } from "react-icons/fa"
 import { FaArrowRight } from "react-icons/fa";
-import image4 from './images/sandro-kradolfer-imLsDPLnr7Y-unsplash.jpg'
-import image5 from './images/danishpastry.jfif'
-import image6 from './images/julian-hochgesang-SDxDQXixgfU-unsplash.jpg'
-import Map from './Map'
+import image4 from './images/sandro-kradolfer-imLsDPLnr7Y-unsplash.avif'
+import image5 from './images/danishpastry.avif'
+import image6 from './images/julian-hochgesang-SDxDQXixgfU-unsplash.avif'
+import Map from './Map.js'
 
 export const Slides = () => {
     const firstSlideRef = useRef(null)

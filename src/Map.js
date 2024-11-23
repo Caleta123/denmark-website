@@ -1,50 +1,33 @@
-import React, { useState } from 'react'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import React, { useRef, useEffect } from 'react';
+import * as maptilersdk from '@maptiler/sdk';
+import "@maptiler/sdk/dist/maptiler-sdk.css";
+import './map.css';
 
-const locations = [
-    { name: 'Copenhagen', lat: 55.6761, lon: 12.5683, info: 'The capital city of Denmark!' },
-    { name: 'Aarhus', lat: 56.1629, lon: 10.2039},
-    { name: 'Odense', lat: 55.4038, lon: 10.4024, info: 'Birthplace of Hans Christian Andersen' },
-    { name: 'Aalborg', lat: 57.0488, lon: 9.9217, info: 'City in Northern Denmark' },
-]
+const Map = () => {
+    const mapContainer = useRef(null);
+    const map = useRef(null);
+    const denmark = { lng: 12.97453, lat: 55.836 };
+    const zoom = 5;
+    maptilersdk.config.apiKey = 'BmdgCiRONzD0eaHRi0dL';
 
-export const Map = () => {
-    const [activeCity, setActiveCity] = useState(null)
+    useEffect(() => {
+        if (map.current) return; // stops map from intializing more than once
+      
+        map.current = new maptilersdk.Map({
+          container: mapContainer.current,
+          style: 'https://api.maptiler.com/maps/toner-v2/style.json?key=BmdgCiRONzD0eaHRi0dL',
+          center: [denmark.lng, denmark.lat],
+          zoom: zoom
+        });
+      
+      }, [denmark.lng, denmark.lat, zoom]);
 
-  return (
-    <div style={{ height: '100%' }}>
-        <MapContainer 
-            center={[56.2639, 9.5018]}
-            zoom={7}
-            scrollWheelZoom={false}
-            style={{width: '100%', height: '100%'}}>
-            <TileLayer
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors">
-            </TileLayer>
+      return (
+        <div className="map-wrap">
+          <div ref={mapContainer} className="map" />
+        </div>
+      );
+};
 
-            {locations.map((loc, i) => (
-                <Marker 
-                key={i}
-                position={[loc.lat, loc.lon]}
-                eventHandlers={{
-                    click: () => setActiveCity(loc),
-                }}
-                >
-                    <Popup>{loc.name}</Popup>
-                </Marker>
-            ))}
+export default Map;
 
-            { activeCity && (
-                <div className='info-box'>
-                    <h2>{activeCity.name}</h2>
-                    <p>{activeCity.info}</p>
-                </div>
-                )
-            }
-        </MapContainer>
-    </div>
-  )
-}
-
-export default Map
