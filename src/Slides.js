@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import image1 from './images/andreas-rasmussen-oBmlsTW2pHY-unsplash.avif'
 import image2 from './images/febiyan--hwDGRQzAeM-unsplash.avif'
-import image3 from './images/kevin-angelso-DXjEc3tSt8M-unsplash.avif'
+import image3 from './images/serge-taeymans-FEpZRUSqTTk-unsplash.avif'
 import { FaArrowLeft } from "react-icons/fa"
 import { FaArrowRight } from "react-icons/fa";
 import image4 from './images/sandro-kradolfer-imLsDPLnr7Y-unsplash.avif'
