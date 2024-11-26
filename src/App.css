@@ -1,7 +1,3 @@
-* {
-  font-display: swap;
-}
-
 body {
   margin: 0;
   height: 100vh;
@@ -43,7 +39,7 @@ body {
   display: inline-block;
   position: absolute;
 }
-.btn-el-second {
+.btn-el-second, .btn-el-third {
   top: 80%;
   left: 80%;
   transform: translate(-50%, -50%);
@@ -53,7 +49,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.second-slide {
+.second-slide, .third-slide, .fourth-slide {
   position: absolute;
   top: 100vh;
   left: 0;
@@ -66,7 +62,7 @@ body {
     border-radius: 10px;
     width: 80%;
     display: inline-block;
-    position: absolute;
+    position: absolute !important;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -97,50 +93,16 @@ body {
 }
 .swiper-pagination-bullet-active { background: white !important; }
 .third-slide {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
   > h1 {
-    margin: 0;
-    border-radius: 10px;
-    width: 80%;
-    display: inline-block;
-    position: absolute !important;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-weight: 600;
-    font-size: 2rem;
   }
 }
-.btn-el-third {
-  top: 80%;
-  left: 80%;
-  transform: translate(-50%, -50%);
-}
 .fourth-slide {
-  position: absolute;
-  top: 100vh;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  overflow-x: hidden;
   > h1 {
-    margin: 0;
-    border-radius: 10px;
     width: 90%;
-    display: inline-block;
-    position: absolute;
     top: 30%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: whitesmoke;
-    font-weight: 600;
-    font-size: 2rem;
     text-align: center;
   }
 }

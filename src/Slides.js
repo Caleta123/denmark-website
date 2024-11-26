@@ -13,7 +13,7 @@ export const Slides = () => {
     const carouselTwoRef = useRef(null)
 
     useEffect(() => {
-        const first = firstSlideRef.current.querySelectorAll('.first-p, .btn-el-first')
+        const first = firstSlideRef.current?.querySelectorAll('.first-p, .btn-el-first')
         gsap.fromTo(first, {
             opacity: 0,
             y: 40
@@ -26,30 +26,33 @@ export const Slides = () => {
             stagger: 0.7,
         });
     }, [])
-    const scrollFirst = () => {
-        const firstSlide = firstSlideRef.current
-        const first = firstSlideRef.current.querySelectorAll('.first-p, .btn-el-first')
-        const secondSlide = secondSlideRef.current
-        const second = secondSlideRef.current.querySelectorAll('.second-header')
-        const secondButton = secondSlideRef.current.querySelectorAll('.btn-el-second')
-
-        if (firstSlide && secondSlide) {
-            gsap.to(first, {
-                y: "-100vh",
+    const handleScroll = (currentSlideRef, nextSlideRef, currentElements, nextElements, currentCarouselRef, nextCarouselRef, delay = 0) => {
+        if (currentElements?.length > 0) {  
+            gsap.to(currentElements, {
+                y: '-100vh',
                 duration: 2,
-                ease: "power2.inOut",
+                ease: 'power2.inOut',
                 stagger: 0.2,
             })
         }
-        if (secondSlide) {
-            gsap.fromTo(secondSlide, {
+        if (currentCarouselRef?.current) {
+            gsap.to(currentCarouselRef.current, {
+                y: '-100vh',
+                duration: 2,
+                ease: 'power2.inOut',
+            });
+        }
+        if (nextSlideRef.current) {
+            gsap.fromTo(nextSlideRef.current, {
                 y: 0,
             }, {
                 y: '-100vh',
                 duration: 2,
-                delay: 1
+                delay: delay,
             })
-            gsap.fromTo([second, carouselOneRef.current], {
+
+            if (nextElements?.length > 0 || nextCarouselRef?.current) {
+               gsap.fromTo([...(nextElements || []), nextCarouselRef?.current], {
                 y: 100,
                 zIndex: -1
             }, {
@@ -58,10 +61,22 @@ export const Slides = () => {
                 duration: 2,
                 stagger: 0.4,
                 ease: 'power2.inOut',
-                delay: 1
-            })
+                delay: delay
+            }) 
+            }
+
+            
         }
-        if (secondSlide) {
+    }
+
+    const scrollFirst = () => {
+        const first = firstSlideRef.current.querySelectorAll('.first-p, .btn-el-first')
+        const second = secondSlideRef.current.querySelectorAll('.second-header')
+        const secondButton = secondSlideRef.current.querySelectorAll('.btn-el-second')
+
+        handleScroll(firstSlideRef, secondSlideRef, first, second, null, carouselOneRef, 1)
+
+        if (secondButton?.length > 0) {
             gsap.fromTo(secondButton, {
                 x: '50vh',
                 opacity: 0,
@@ -73,43 +88,19 @@ export const Slides = () => {
                 ease: 'expo.inOut'
             })
         }
+        
     }
     const scrollSecond = () => {
-        const firstSlide = secondSlideRef.current
-        const first = firstSlide.querySelectorAll('.second-header, .btn-el-second')
-        const secondSlide = thirdSlideRef.current
-        const second = secondSlide.querySelectorAll('.third-header')
-        const secondButton = secondSlide.querySelectorAll('.btn-el-third')
+        const secondSlide = secondSlideRef.current
+        const second = secondSlide.querySelectorAll('.second-header, .btn-el-second')
+        const thirdSlide = thirdSlideRef.current
+        const third = thirdSlide.querySelectorAll('.third-header')
+        const thirdButton = secondSlide.querySelectorAll('.btn-el-third')
 
-        if (firstSlide && secondSlide) {
-            gsap.to([first, carouselOneRef.current], {
-                y: '-100vh',
-                duration: 2,
-                ease: 'power2.inOut',
-            })
-        }
-        if (secondSlide) {
-            gsap.fromTo(secondSlide, {
-                y: 0,
-            }, {
-                y: '-100vh',
-                duration: 2,
-                delay: 2
-            })
-            gsap.fromTo([second, carouselTwoRef.current], {
-                y: 100,
-                zIndex: -1,
-            }, {
-                y: 0,
-                duration: 2,
-                delay: 2,
-                zIndex: 2,
-                stagger: 0.2,
-                ease: 'power2.inOut'
-            })
-        }
-        if (secondSlide) {
-            gsap.fromTo(secondButton, {
+        handleScroll(secondSlideRef, thirdSlideRef, second, third, carouselOneRef, carouselTwoRef, 2)
+
+        if (thirdButton?.length > 0) {
+            gsap.fromTo(thirdButton, {
                 x: '50vh',
                 opacity: 0,
             }, {
@@ -120,39 +111,15 @@ export const Slides = () => {
                 ease: 'expo.inOut'
             })
         }
+        
     }
     const scrollThird = () => {
-        const firstSlide = thirdSlideRef.current
-        const first = firstSlide.querySelectorAll('.third-header, .btn-el-third')
-        const secondSlide = fourthSlideRef.current
-        const second = secondSlide.querySelectorAll('.fourth-header, .map-container, .footer')
+        const thirdSlide = thirdSlideRef.current
+        const third = thirdSlide.querySelectorAll('.third-header, .btn-el-third')
+        const fourthSlide = fourthSlideRef.current
+        const fourth = fourthSlide.querySelectorAll('.fourth-header, .map-container, .footer')
 
-        if (firstSlide && secondSlide) {
-            gsap.to([first, carouselTwoRef.current], {
-                y: '-100vh',
-                duration: 2,
-                ease: 'power2.inOut',
-            })
-        }
-        if (secondSlide) {
-            gsap.fromTo(secondSlide, {
-                y: 0,
-            }, {
-                y: '-100vh',
-                duration: 2,
-                delay: 2
-            })
-            gsap.fromTo(second, {
-                y: 40,
-            }, {
-                y: 0,
-                duration: 2,
-                stagger: 0.7,
-                zIndex: 2,
-                ease: 'power2.inOut',
-                delay: 2
-            })
-        }
+        handleScroll(thirdSlideRef, fourthSlideRef, third, fourth, carouselTwoRef, null, 2)
     }
 
   return (
